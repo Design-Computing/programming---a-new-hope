@@ -1,0 +1,160 @@
+Concepts
+    What is programming?
+        Lots of definitions, maybe 'Explicitly describing a process' maybe 'writing code' maybe 'teaching'
+    Continuous learning
+        You'll learn three things in this course, concepts and culture will change slowly but competency will change really fast. You should expect to turn over more than 85% of your knowledge every 3 years. That means that by the time you graduate there's a pretty good chance that most of this course will be obsolete.
+        However, the plan here is to teach you how to think like a programmer, not how to order letters and punctuation in the right way. That way of thinking never goes out of practice.
+    Problem description
+        Nearly all of solving a problem is describing what that problem actually is. [try and find the Hugh Whitehead quote]
+    Paradigms
+        There are a few paradigms of programming. I'm going to sweep them under the carpet for now but, for those who are a interested, this course will be using imperative with a bit of functional where it makes sense.
+    Control flow
+        The key innovation of the Turing machine was that data and instructions were to be stored in the same place (Much like in the brain). Instructions are things like `do this` but the most critical type of instruction that makes computers useful is `if this, then do this`.
+    Data structures
+        The way you structure your data is important. Do you keep it in a list, or a dictionary, or a heap, or a bag or a tree...
+        Another flavour of the "describe a problem well and it's solved" idea is that once you find the right data structure for your problem, the problem solves itself.
+        In this course we'll be mostly using lists and dictionaries.
+Culture
+    Since Lady Ada Lovelace did the very first programming, people have thought about how to do it better. With anything that people think about, a culture emerges. The way that culture works, and the way it affects you is important.
+    The culture has its own sense of humour, its own social rules, its own aesthetic. Lots of this is great, and we want you to be steeped in it; some of it is harmful, and we want you to be able to recognise it and drive it out.
+    Programming, scripting, hacking, computer science and software engineering are all very similar to an outsider. We'll talk about what each one means.
+    Architecture has a long history with programming. This course is mostly about getting you on board with how to be a competent programmer, but a big part of that is learning how to ask for help. If you can go into programmer places and talk their talk then you'll thrive.,
+    Holy wars
+Competency
+    This is what you all expected from this course. This is the nuts and bolts of programming.
+    Things that people need to be able to do by the end:
+    [lets order these most to least important]
+        Print to the console
+        variables
+        scope
+        abstraction
+        doing one thing and only one thing
+        functions
+        pulling from GitHub
+        making a commit
+        pushing to github
+        making a PR
+        zip 2 lists
+        map a function over a list
+        for each loop
+        Events in processing
+        read and write files
+        read data from an API
+        visualise data
+        enumerate loop
+        binary search solver
+        recursion
+        indirection
+        break files into helpers
+        Modify a program to work in grasshopper, maybe in dynamo too
+
+    Cool projects to demonstrate things:
+        1d bin packing of sticks for a node thingy
+        recursive word modification
+
+    Each week should have examples to write that have tests, and also broken examples to debug
+
+
+Environment progression
+    browser based
+        Tickle.io
+    virtual machine
+        processing
+        sublime
+        processing
+
+Weeks
+    week 1
+        Lecture
+            Importance of programming in the world
+            course admin
+                what to expect from the course
+                what I expect from my students
+                Submissions through GitHub
+            Concepts to cover in the lab
+                Code as prose
+                "code is for humans to read and only incidentally for computers to execute"
+                Set up GH and SO accounts
+                syntax, indenting, built in functions
+                String, list, function, map, zip, if elif else
+        Labs
+            Do some things in tickle.io
+            Take a body of text and replace words in it
+            e.g.
+                `def makeShampoo(word):`
+                `    if word == "said":`
+                `        return "Shampoo"`
+                `    else:`
+                `        return word`
+                `phrase = "I asked you to cook the egg"`
+                `words = phrase.split(" ")`
+                `words.map(makeShampoo)`
+        Homework
+            Install the virtual machine
+            do try GitHub course
+    week 2
+        Lecture
+            abstraction and problem decomposition
+                Finding problems in the world that are easy to solve with programming.
+                Not being overwhelmed: methods for breaking up problems until each tiny problem part is easy.
+                Turtles all the way down. What is really happening when you press ctrl+b to build hello world? interpret (not compile)a ssembly, machine code, registers etc
+            working in your own environment
+                Build environment in sublime
+                What is syntax highlighting and bracket matching
+                Learn to use this, it'll be your friend for the rest of your life, and effort spent getting good at using your editor, will pay you back hundreds of times over.
+                debugging with print statements and reading stack traces
+            for loops
+            import libraries
+            working with files and file systems
+        Labs
+            Working in sublime
+        Homework
+    week 3
+        Lecture
+        Labs
+        Homework
+    week 4
+        Lecture
+        Labs
+        Homework
+    week 5
+        Lecture
+        Labs
+        Homework
+    week 6
+        Lecture
+        Labs
+        Homework
+    week 7
+        Lecture
+        Labs
+        Homework
+    week 8
+        Lecture
+        Labs
+        Homework
+    week 9
+        Lecture
+        Labs
+        Homework
+    week 10
+        Lecture
+        Labs
+        Homework
+    week 11
+        Lecture
+        Labs
+        Homework
+    week 12
+        Lecture
+        Labs
+        Homework
+    week 13
+        Lecture
+        Labs
+        Homework
+    week 14
+        Lecture
+        Labs
+        Homework
+ 
