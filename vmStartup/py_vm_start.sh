@@ -1,19 +1,29 @@
-MYTEXT='\e[0;35m'
-NOCOLOUR='\e[0m' # No Color
-echo -e "${MYTEXT}Ready to install everything you need.${NOCOLOUR}"
-echo -e "${MYTEXT}Lets go!${NOCOLOUR}"
+function explain() {
+	MYTEXT='\e[0;35m'
+	NOCOLOUR='\e[0m' # No Color
+	echo -e "\n${MYTEXT} $* ${NOCOLOUR}"
+}
+
+explain "Ready to install everything you need."
+explain "Lets go!"
 
 #git
-echo -e "\n${MYTEXT}add ppa for git${NOCOLOUR}"
+explain "add ppa for git"
 sudo apt-add-repository ppa:git-core/ppa -y #latest git
 
 #node and npm - I think apt-get works for this (below)
-echo -e "\n${MYTEXT}install npm and node${NOCOLOUR}"
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+explain "install npm and node"
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+
+sudo chown -R `whoami` /usr/lib/node_modules
+sudo chown -R `whoami` ~/.npm
+sudo chown -R `whoami` /usr/bin/npm
+sudo npm install -g npm #sudo considered bad, but it works ¯\_(ツ)_/¯
 
 #install things
-echo -e "\n${MYTEXT}update ppa repositories${NOCOLOUR}"
+explain "update ppa repositories"
 # this cleans out the duplicates from the ppas.
 # Something to do with the way that the google ppas are set up
 # sudo apt-get install python3-apt ## already comes with the distro
@@ -21,82 +31,83 @@ git clone https://github.com/davidfoerster/apt-remove-duplicate-source-entries.g
 sudo apt-remove-duplicate-source-entries/apt-remove-duplicate-source-entries.py -y
 #off we go again
 sudo apt-get update
-echo -e "\n${MYTEXT}install lots of things${NOCOLOUR}"
+explain "install lots of things"
 #I know you can install these things all in one command, but I'm hoping that many commands will be more robust to failure
 #this REALLY ought to be in a loop
-echo -e "\n${MYTEXT}arduino${NOCOLOUR}"
+explain "arduino"
 sudo apt-get -y install arduino
-echo -e "\n${MYTEXT}build-essential${NOCOLOUR}"
+explain "build-essential"
 sudo apt-get -y install build-essential
-echo -e "\n${MYTEXT}bundler${NOCOLOUR}"
+explain "bundler"
 sudo apt-get -y install bundler
-echo -e "\n${MYTEXT}cups${NOCOLOUR}"
+explain "cups"
 sudo apt-get -y install cups
-echo -e "\n${MYTEXT}curl${NOCOLOUR}"
+explain "curl"
 sudo apt-get -y install curl
-echo -e "\n${MYTEXT}gdebi-core${NOCOLOUR}"
+explain "gdebi-core"
 sudo apt-get -y install gdebi-core
-echo -e "\n${MYTEXT}git${NOCOLOUR}"
+explain "git"
 sudo apt-get -y install git
-echo -e "\n${MYTEXT}imagemagick${NOCOLOUR}"
+explain "imagemagick"
 sudo apt-get -y install imagemagick
-echo -e "\n${MYTEXT}libapparmor1${NOCOLOUR}"
+explain "libapparmor1"
 sudo apt-get -y install libapparmor1
-echo -e "\n${MYTEXT}ruby2.3${NOCOLOUR}" #check version wanted here: https://www.brightbox.com/docs/ruby/ubuntu/
+explain "ruby2.3 #check version wanted here: https://www.brightbox.com/docs/ruby/ubuntu/"
 sudo apt-get -y install ruby2.3
-echo -e "\n${MYTEXT}ruby2.3-dev${NOCOLOUR}" #numbers must match above
+explain "ruby2.3-dev #numbers must match above"
 sudo apt-get -y install ruby2.3-dev
-echo -e "\n${MYTEXT}rubygems${NOCOLOUR}"
+explain "rubygems"
 sudo apt-get -y install rubygems
-echo -e "\n${MYTEXT}samba${NOCOLOUR}"
+explain "samba"
 sudo apt-get -y install samba
-echo -e "\n${MYTEXT}sl${NOCOLOUR}"
+explain "sl"
 sudo apt-get -y install sl
-echo -e "\n${MYTEXT}wget${NOCOLOUR}"
+explain "wget"
 sudo apt-get -y install wget
-echo -e "\n${MYTEXT}xvfb${NOCOLOUR}"
+explain "xvfb"
 sudo apt-get -y install xvfb
-echo -e "\n${MYTEXT}unzip${NOCOLOUR}"
+explain "unzip"
 sudo apt-get -y install unzip
 
 #hyper terminal
-echo -e "\n${MYTEXT}install hyper${NOCOLOUR}"
+explain "install hyper"
 sudo apt-get -y install icnsutils graphicsmagick xz-utils rpm libappindicator1 #for hyper
 wget "https://hyper-updates.now.sh/download/linux_deb"
 sudo dpkg --install linux_deb
 
 #atom
-echo -e "\n${MYTEXT}install atom${NOCOLOUR}"
-git clone https://github.com/atom/atom.git
-cd atom
-script/build
-cd ..
+explain "install atom"
+sudo apt-get -y install build-essential git libgnome-keyring-dev fakeroot rpm libx11-dev libxkbfile-dev
+wget -O atomdeb https://atom.io/download/deb
+sudo dpkg --install atomdeb
+sudo chown -R `whoami` /home/ben/.atom
 
 #pip
-echo -e "\n${MYTEXT}install pip${NOCOLOUR}"
+explain "install pip"
 sudo apt-get -y install python-pip
 sudo -H pip install --upgrade pip #probably not needed, but belt and braces
 
 #python and jupyter
-echo -e "\n${MYTEXT}install ipython and jupyter${NOCOLOUR}"
+explain "install ipython and jupyter"
 sudo apt-get -y install python2.7 python-pip python-dev
 sudo apt-get -y install ipython ipython-notebook
 sudo apt-get -y install pylint
 sudo apt-get -y install python-bs4
 sudo apt-get -y install python-html5lib
+sudo apt-get -f install -y # does a tidy up, needed for some reason
 sudo -H pip install jupyter
 
 #pip
-echo -e "\n${MYTEXT}install pip packages${NOCOLOUR}"
+explain "install pip packages"
 # sudo pip install **package names**
 sudo -H pip install matplotlib numpy scipy requests
 
 #gems
-echo -e "\n${MYTEXT}install ruby gems${NOCOLOUR}"
+explain "install ruby gems"
 # sudo gem install **gem names**
 
 #atom plugins
-echo -e "\n${MYTEXT}install atom plugins${NOCOLOUR}"
+explain "install atom plugins"
 apm install linter
 apm install linter-pylint
 apm install script
@@ -110,7 +121,7 @@ apm install minimap-highlight-selected
 apm install pigments
 
 #settings
-echo -e "\n${MYTEXT}set git variables${NOCOLOUR}"
+explain "set git variables"
 source variables #get the variables from a file so that people don't need to come into this file
 #git
 git config --global user.name $MYNAME
@@ -120,10 +131,12 @@ git config --global color.ui auto #colour the output in git
 git config --global core.editor "atom --wait"
 
 #upgrade things if they need it
+explain "upgrade things if they need it"
+sudo apt-get -f install -y # does a tidy up, needed for some reason
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get clean -y
 
 sudo gem update --system
 
-echo -e "\n${MYTEXT}All done!${NOCOLOUR}"
+explain "All done!"

@@ -1,12 +1,10 @@
-MYTEXT='\e[0;35m'
-NOCOLOUR='\e[0m' # No Color
-
-
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-echo -e "\n${MYTEXT}install atom${NOCOLOUR}"
-# git clone https://github.com/atom/atom.git
+cd
+git clone https://github.com/atom/atom.git
+sudo apt-get -y install build-essential git libgnome-keyring-dev fakeroot rpm libx11-dev libxkbfile-dev
+sudo npm install -g node-gyp
 cd atom
-script/build
-cd ..
+# script/build --create-debian-package
+wget https://atom.io/download/deb
+sudo dpkg --install deb
+# cd ..
+# cd /media/sf_projects/git/programming---a-new-hope
