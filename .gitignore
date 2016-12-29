@@ -90,4 +90,5 @@ ENV/
 
 #atom installation files
 atom/
+node_modules/
 linux_deb
