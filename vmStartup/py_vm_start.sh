@@ -116,17 +116,19 @@ explain "install ruby gems"
 
 #atom plugins
 explain "install atom plugins"
+apm install file-icons
+apm install highlight-selected
 apm install linter
 apm install linter-flake8
+apm install minimap
+apm install minimap-highlight-selected
+apm install open-recent
+apm install pigments
 apm install script
 apm install seti-ui
 apm install monokai-seti
-apm install open-recent
+apm install sort-lines
 apm install todo-show
-apm install minimap
-apm install highlight-selected
-apm install minimap-highlight-selected
-apm install pigments
 
 #settings
 explain "set git variables"
@@ -142,7 +144,7 @@ git config --global core.editor "atom --wait"
 explain "upgrade things if they need it"
 sudo apt-get -f install -y # does a tidy up, needed for some reason
 sudo apt-get update -y
-# sudo apt-get upgrade -y #disable for testing - takes a long time
+sudo apt-get upgrade -y #disable for testing - takes a long time
 sudo apt-get clean -y
 
 sudo gem update -Nq --system #N no docs, q quiet
