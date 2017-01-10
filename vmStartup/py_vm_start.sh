@@ -70,14 +70,11 @@ sudo apt-get -y install unzip
 # sudo apt-remove-duplicate-source-entries/apt-remove-duplicate-source-entries.py -y
 #off we go again
 
-
-##hyper terminal
 # explain "install hyper"
 # sudo apt-get -y install icnsutils graphicsmagick xz-utils rpm libappindicator1 #for hyper
 # wget "https://hyper-updates.now.sh/download/linux_deb"
 # sudo dpkg --install linux_deb
 
-#atom
 explain "install atom"
 sudo apt-get -y install build-essential git libgnome-keyring-dev fakeroot rpm libx11-dev libxkbfile-dev
 wget -O atomdeb https://atom.io/download/deb
@@ -87,12 +84,18 @@ sleep 20s #let it get started
 # killall -w atom #this gets blocked by the confirmation, not sure how to solve
 sudo chown -R `whoami` /home/`whoami`/.atom
 
-#pip
+explain "install processing"
+HERE=`pwd`
+cd
+wget -O  processing.tgz "http://download.processing.org/processing-3.2.3-linux64.tgz"
+tar xvfz processing.tgz
+cd $HERE
+echo "alias processing='~/processing-3.2.3/processing'" >> ~/.bashrc
+
 explain "install pip"
 sudo apt-get -y install python-pip
 sudo -H pip install --upgrade pip #probably not needed, but belt and braces
 
-#python and jupyter
 explain "install ipython and jupyter"
 sudo apt-get -y install python2.7 python-pip python-dev
 sudo apt-get -y install ipython ipython-notebook
@@ -129,6 +132,8 @@ apm install seti-ui
 apm install monokai-seti
 apm install sort-lines
 apm install todo-show
+apm install markdown-writer
+apm install zen
 
 #settings
 explain "set git variables"
