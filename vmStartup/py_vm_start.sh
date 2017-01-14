@@ -117,6 +117,14 @@ sudo -H pip install matplotlib numpy scipy requests flake8 flake8-docstrings hac
 explain "install ruby gems"
 # sudo gem install **gem names**
 
+explain "get Noto fonts"
+# from https://www.google.com/get/noto/help/install/
+curl -sL 'https://noto-website-2.storage.googleapis.com/pkgs/Noto-hinted.zip'
+unzip Noto-hinted.zip
+sudo mkdir -p /usr/share/fonts/opentype/noto
+sudo cp *otf  /usr/share/fonts/opentype/noto
+sudo fc-cache -f -v # optional
+
 #atom plugins
 explain "install atom plugins"
 apm install file-icons
