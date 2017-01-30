@@ -127,20 +127,21 @@ sudo fc-cache -f -v # optional
 
 #atom plugins
 explain "install atom plugins"
+apm install autocomplete-python
 apm install file-icons
 apm install highlight-selected
 apm install linter
 apm install linter-flake8
+apm install markdown-writer
 apm install minimap
 apm install minimap-highlight-selected
+apm install monokai-seti
 apm install open-recent
 apm install pigments
 apm install script
 apm install seti-ui
-apm install monokai-seti
 apm install sort-lines
 apm install todo-show
-apm install markdown-writer
 apm install zen
 
 #settings
